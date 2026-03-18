@@ -1,13 +1,21 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Space_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from './components/ThemeProvider'
 
-const inter = Inter({ subsets: ['latin'] })
+const spaceGrotesk = Space_Grotesk({ 
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
+})
 
 export const metadata: Metadata = {
-  title: 'John Doe - Portfolio',
-  description: 'Full Stack Developer & Designer',
+  title: 'Amit Kumar - Portfolio',
+  description: 'Full Stack Developer & AI Enthusiast',
 }
 
 export default function RootLayout({
@@ -17,8 +25,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -9,6 +9,7 @@ import Contact from './components/Contact'
 import Navigation from './components/Navigation'
 import Chatbot from './components/Chatbot'
 import ResumeDownload from './components/ResumeDownload'
+import Education from './components/Education'
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <About />
       <Skills />
       <Experience />
+      <Education />
       <Projects />
       <Contact />
       <ResumeDownload />

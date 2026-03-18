@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
-import { MessageCircle, X, Send } from 'lucide-react'
+import { X, Send } from 'lucide-react'
+import ChatbotIcon from '@/assets/public/icons/chatbotIcon'
 
 interface Message {
   id: string
@@ -16,7 +17,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "🧦 Dobby is here to help you, sir/madam! Dobby knows all about Master Amit's skills, projects, and achievements! Dobby is most excited to answer your questions! 📄 If you wishes to see Master Amit's resume, click the green button above Dobby!",
+      text: "Hi! I'm Amit's AI assistant. I can help answer questions about Amit's skills, projects, experience, and education. Feel free to ask me anything!",
       sender: 'bot',
       timestamp: new Date(),
     },
@@ -62,34 +63,80 @@ export default function Chatbot() {
   }, [messages])
 
   const getPortfolioData = () => ({
-    skills: [
-      'React',
-      'Next.js',
-      'TypeScript',
-      'Node.js',
-      'Tailwind CSS',
-      'GSAP',
-      'MongoDB',
-      'PostgreSQL',
-      'Docker',
-      'AWS',
+    name: 'Amit Kumar',
+    email: '1311amitkr@gmail.com',
+    phone: '+91 9060053989',
+    location: 'India',
+    summary: 'Computer Science undergraduate at IIIT Raichur and Top 1.4% Leetcode global performer. Builds Full-stack, AI-driven, and Cloud (AWS) applications using React.js, Next.js, and Node.js with a keen interest in Golang.',
+    skills: {
+      languages: ['TypeScript', 'Golang', 'JavaScript', 'Python', 'C/C++', 'HTML', 'CSS', 'SQL'],
+      frameworks: ['React', 'Next.js', 'Node.js', 'Express.js', 'TailwindCSS'],
+      tools: ['AWS (EC2, S3, Lambda)', 'Jenkins', 'Git', 'CockroachDB', 'MongoDB', 'PostgreSQL'],
+      coursework: ['DSA', 'OOP', 'DBMS', 'Software Engineering', 'Operating Systems', 'Computer Networks'],
+    },
+    experience: [
+      {
+        title: 'Web Developer Intern',
+        company: 'Seequenzee',
+        period: 'December 2025 – Present',
+        location: 'Remote',
+        highlights: [
+          'Automated serverless deployments by building Jenkins CI/CD pipelines for AWS Lambda',
+          'Engineered cloud-hosted backend services with focus on scalability and performance',
+        ],
+      },
     ],
     projects: [
-      'E-Commerce Platform',
-      'Task Management App',
-      'Social Media Dashboard',
-      'AI Content Generator',
-      'Fitness Tracker',
-      'Real Estate Portal',
-    ],
-    experience: [
-      'Senior Full Stack Developer at Tech Innovations Inc. (2022-Present)',
-      'Full Stack Developer at Digital Solutions Co. (2020-2022)',
-      'Junior Web Developer at StartUp Labs (2019-2020)',
+      {
+        name: 'CollabBoard',
+        description: 'Real-Time Collaborative Ideation Canvas',
+        tech: ['Next.js', 'Node.js', 'WebSocket (Socket.io)', 'PostgreSQL', 'Turborepo'],
+        period: 'Aug 2025 – Oct 2025',
+        highlights: [
+          'Built real-time collaborative whiteboard using WebSockets for low-latency multi-user synchronization',
+          'Implemented high-performance rendering engine with HTML5 Canvas API',
+          'Optimized monorepo builds using Turborepo, reducing build times by 40%',
+        ],
+      },
+      {
+        name: 'QuickAI SaaS',
+        description: 'Multimodal Generative AI Suite',
+        tech: ['React.js', 'Node.js', 'Express', 'PostgreSQL', 'Clerk Auth'],
+        period: 'Oct 2025 - Dec 2025',
+        highlights: [
+          'Architected multimodal SaaS integrating LLMs and Computer Vision',
+          'Built ledger-based PostgreSQL system with ACID-compliant transaction locks',
+          'Engineered NLP-driven Resume Reviewer with secure endpoints',
+        ],
+      },
+      {
+        name: 'NoteSphere',
+        description: 'Context-Aware Digital Brain & Organizer',
+        tech: ['MERN Stack', 'TypeScript', 'OpenAI API', 'Vector Search'],
+        period: 'Nov 2024 – Mar 2025',
+        highlights: [
+          'Built RAG-based retrieval system using vector embeddings',
+          'Implemented scalable ingestion pipeline with TypeScript-based validation',
+        ],
+      },
     ],
     education: [
-      'Bachelor of Science in Computer Science from Tech University (2015-2019)',
-      'High School Diploma from Central High School (2011-2015)',
+      {
+        degree: 'Bachelor of Technology in Computer Science and Engineering',
+        institution: 'Indian Institute of Information Technology, Raichur',
+        location: 'Raichur, Karnataka',
+        period: 'August 2023 – Present',
+      },
+      {
+        degree: 'Intermediate and Matriculation',
+        institution: 'Jawahar Navodaya Vidyalaya, Katihar',
+        location: 'Katihar, Bihar',
+        period: 'August 2015 – June 2022',
+      },
+    ],
+    achievements: [
+      'Qualified the Institute-level round of Smart India Hackathon (SIH) 2025-26',
+      'Solved over 450 problems on LeetCode, ranking in the top 1.4% globally',
     ],
   })
 
@@ -102,30 +149,51 @@ export default function Chatbot() {
       message.includes('skill') ||
       message.includes('technology') ||
       message.includes('language') ||
-      message.includes('what can you do')
+      message.includes('tech stack') ||
+      message.includes('what can')
     ) {
-      return `I have expertise in ${data.skills.slice(0, 5).join(', ')}, and more! I'm proficient in both frontend and backend technologies. Would you like to know about any specific skill?`
+      return `Amit is skilled in multiple technologies:\n\n**Languages:** ${data.skills.languages.join(', ')}\n\n**Frameworks:** ${data.skills.frameworks.join(', ')}\n\n**Cloud & Tools:** ${data.skills.tools.join(', ')}\n\nWould you like to know more about any specific technology?`
     }
 
     // Projects queries
-    if (message.includes('project') || message.includes('work')) {
-      return `I've worked on ${data.projects.length} projects including: ${data.projects
-        .slice(0, 3)
-        .join(', ')}, and more. Each project showcases my ability to build full-featured applications. Want to know about a specific project?`
+    if (message.includes('project') || message.includes('work') || message.includes('built')) {
+      const projectList = data.projects
+        .map((p) => `• **${p.name}** (${p.period}): ${p.description}`)
+        .join('\n')
+      return `Amit has worked on several impressive projects:\n\n${projectList}\n\nWould you like details about any specific project?`
+    }
+
+    // Specific project queries
+    if (message.includes('collabboard')) {
+      const project = data.projects[0]
+      return `**CollabBoard** is a ${project.description} built with ${project.tech.join(', ')}. Key features:\n\n${project.highlights.map((h) => `• ${h}`).join('\n')}`
+    }
+
+    if (message.includes('quickai')) {
+      const project = data.projects[1]
+      return `**QuickAI SaaS** is a ${project.description} built with ${project.tech.join(', ')}. Key features:\n\n${project.highlights.map((h) => `• ${h}`).join('\n')}`
+    }
+
+    if (message.includes('notesphere')) {
+      const project = data.projects[2]
+      return `**NoteSphere** is a ${project.description} built with ${project.tech.join(', ')}. Key features:\n\n${project.highlights.map((h) => `• ${h}`).join('\n')}`
     }
 
     // Experience queries
     if (
       message.includes('experience') ||
       message.includes('work experience') ||
+      message.includes('internship') ||
       message.includes('job')
     ) {
-      return `I have 5+ years of experience! Currently a Senior Full Stack Developer at Tech Innovations Inc. I've also worked at Digital Solutions Co. and StartUp Labs. Would you like more details about any position?`
+      const exp = data.experience[0]
+      return `Amit is currently working as a **${exp.title}** at **${exp.company}** (${exp.period}, ${exp.location}).\n\nKey responsibilities:\n${exp.highlights.map((h) => `• ${h}`).join('\n')}`
     }
 
     // Education queries
-    if (message.includes('education') || message.includes('degree') || message.includes('study')) {
-      return `I have a Bachelor's degree in Computer Science from Tech University (2015-2019) with a 3.8 GPA and multiple honors. I started learning programming in high school and have been passionate about it ever since!`
+    if (message.includes('education') || message.includes('degree') || message.includes('study') || message.includes('college') || message.includes('university')) {
+      const edu = data.education[0]
+      return `Amit is currently pursuing a **${edu.degree}** from **${edu.institution}**, ${edu.location} (${edu.period}).\n\nHe completed his schooling from Jawahar Navodaya Vidyalaya, Katihar (2015-2022).`
     }
 
     // Contact queries
@@ -133,18 +201,32 @@ export default function Chatbot() {
       message.includes('contact') ||
       message.includes('email') ||
       message.includes('reach') ||
-      message.includes('phone')
+      message.includes('phone') ||
+      message.includes('call') ||
+      message.includes('mail')
     ) {
-      return `You can reach out via the contact form on my portfolio, email me at john@example.com, or connect with me on LinkedIn and GitHub. I'd love to hear from you!`
+      return `You can reach Amit through:\n\n📧 **Email:** ${data.email}\n📱 **Phone:** ${data.phone}\n📍 **Location:** ${data.location}\n\nFeel free to reach out for collaboration or opportunities!`
     }
 
     // About queries
     if (
       message.includes('about') ||
-      message.includes('who are you') ||
-      message.includes('tell me about')
+      message.includes('who is') ||
+      message.includes('tell me about') ||
+      message.includes('who are you')
     ) {
-      return `I'm John, a Full Stack Developer with 5+ years of experience. I specialize in creating beautiful, responsive web applications. I love solving problems and learning new technologies. What would you like to know more about?`
+      return `${data.summary}\n\nCurrently seeking Software Engineering Internship opportunities to leverage strong algorithmic problem-solving and full-stack expertise.`
+    }
+
+    // Achievement queries
+    if (
+      message.includes('achievement') ||
+      message.includes('accomplishment') ||
+      message.includes('award') ||
+      message.includes('leetcode') ||
+      message.includes('hackathon')
+    ) {
+      return `Amit's achievements:\n\n${data.achievements.map((a) => `• ${a}`).join('\n')}\n\nImpressive, right?`
     }
 
     // Greeting queries
@@ -154,20 +236,16 @@ export default function Chatbot() {
       message.includes('hey') ||
       message.includes('greetings')
     ) {
-      return `Hello! It's great to meet you! I'm here to help answer any questions about my portfolio, skills, projects, or experience. What would you like to know?`
+      return `Hello! I'm here to help you learn more about Amit Kumar. You can ask me about his skills, projects, experience, education, achievements, or how to contact him. What would you like to know?`
     }
 
-    // How many/statistics queries
-    if (
-      message.includes('how many') ||
-      message.includes('statistics') ||
-      message.includes('stats')
-    ) {
-      return `Here are some stats: 5+ years of experience, 50+ projects completed, 30+ happy clients, 12+ technologies mastered. Pretty exciting journey so far!`
+    // Location queries
+    if (message.includes('location') || message.includes('where') || message.includes('based')) {
+      return `Amit is based in ${data.location} and is currently studying at IIIT Raichur, Karnataka.`
     }
 
     // Default response
-    return `Great question! I can help you learn about my skills, projects, work experience, education, or how to get in touch. Feel free to ask me anything specific!`
+    return `I can help you learn about Amit's:\n• Skills and technologies\n• Projects and work\n• Experience and internships\n• Education\n• Achievements\n• Contact information\n\nWhat would you like to know?`
   }
 
   const handleSendMessage = async () => {
@@ -227,7 +305,7 @@ export default function Chatbot() {
 
       const errorMessage: Message = {
         id: (Date.now() + 2).toString(),
-        text: `Sorry, I encountered an error: ${error.message}. Please try again or contact John directly at john@example.com.`,
+        text: `Sorry, I encountered an error: ${error.message}. Please try again or contact Amit directly at 1311amitkr@gmail.com.`,
         sender: 'bot',
         timestamp: new Date(),
       }
@@ -250,11 +328,11 @@ export default function Chatbot() {
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-40 p-4 rounded-full bg-gradient-to-r from-amber-600 to-amber-800 text-white shadow-2xl hover:shadow-amber-500/50 hover:shadow-[0_0_30px_rgba(217,119,6,0.6)] hover:scale-110 hover:rotate-6 transition-all duration-300 hover:brightness-110"
-        aria-label="Chat with Dobby"
-        title="Chat with Dobby"
+        className="fixed bottom-6 right-6 z-40 p-4 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300"
+        aria-label="Open chat assistant"
+        title="Chat with AI Assistant"
       >
-        {isOpen ? <X size={28} /> : <span className="text-4xl">🧦</span>}
+        {isOpen ? <X size={28} /> : <ChatbotIcon className="w-7 h-7" />}
       </button>
 
       {/* Chat Box */}
@@ -264,11 +342,11 @@ export default function Chatbot() {
           className="fixed bottom-24 right-6 z-40 w-96 max-h-[500px] bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col"
         >
           {/* Header */}
-          <div className="bg-gradient-to-r from-amber-600 to-amber-800 text-white p-4">
+          <div className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white p-4">
             <h3 className="font-bold text-lg flex items-center gap-2">
-              <span className="text-2xl">🧦</span> Dobby the House-Elf
+              <ChatbotIcon className="w-6 h-6" /> AI Assistant
             </h3>
-            <p className="text-sm opacity-90">Dobby is happy to serve and answer questions!</p>
+            <p className="text-sm opacity-90">Ask me anything about Amit!</p>
           </div>
 
           {/* Messages */}
