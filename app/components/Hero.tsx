@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="hero" className="min-h-screen flex items-center relative overflow-hidden px-4">
+    <section id="hero" className="min-h-screen flex items-center pt-24 relative overflow-hidden px-4">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute -top-32 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
@@ -100,47 +100,54 @@ const Hero = () => {
 
           {/* Right column */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="glass-card p-8 rounded-3xl border border-primary/20"
+            className="relative"
           >
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center text-primary font-bold text-xl">
-                AK
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Currently</p>
-                <p className="text-lg font-semibold text-foreground">Web Developer Intern</p>
-                <p className="text-sm text-muted-foreground">Seequenzee · Remote</p>
-              </div>
+            {/* Main Glass Card with Profile Image */}
+            <div className="glass-card p-2 rounded-3xl border border-primary/20 relative z-10 overflow-hidden">
+               <div className="relative aspect-square w-full rounded-2xl overflow-hidden group">
+                  <img 
+                    src="/profile.png" 
+                    alt="Amit Kumar" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+               </div>
+               
+               <div className="p-6">
+                 <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center text-primary font-bold text-lg">
+                      AK
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground">Currently</p>
+                      <p className="text-base font-semibold text-foreground leading-tight">Web Developer Intern</p>
+                      <p className="text-xs text-muted-foreground">Seequenzee · Remote</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 grid grid-cols-3 gap-3">
+                    <div className="rounded-xl bg-primary/5 border border-primary/10 p-3 text-center">
+                      <p className="text-xl font-bold text-foreground">400+</p>
+                      <p className="text-[10px] text-muted-foreground uppercase tracking-wider">LeetCode</p>
+                    </div>
+                    <div className="rounded-xl bg-primary/5 border border-primary/10 p-3 text-center">
+                      <p className="text-xl font-bold text-foreground">3+</p>
+                      <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Major Projects</p>
+                    </div>
+                    <div className="rounded-xl bg-primary/5 border border-primary/10 p-3 text-center">
+                      <p className="text-xl font-bold text-foreground">AWS</p>
+                      <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Cloud Focus</p>
+                    </div>
+                  </div>
+               </div>
             </div>
 
-            <div className="mt-8 grid grid-cols-3 gap-4">
-              <div className="rounded-2xl bg-primary/5 border border-primary/20 p-4 text-center">
-                <p className="text-2xl font-bold text-foreground">400+</p>
-                <p className="text-xs text-muted-foreground">LeetCode</p>
-              </div>
-              <div className="rounded-2xl bg-primary/5 border border-primary/20 p-4 text-center">
-                <p className="text-2xl font-bold text-foreground">3+</p>
-                <p className="text-xs text-muted-foreground">Major Projects</p>
-              </div>
-              <div className="rounded-2xl bg-primary/5 border border-primary/20 p-4 text-center">
-                <p className="text-2xl font-bold text-foreground">AWS</p>
-                <p className="text-xs text-muted-foreground">Cloud Focus</p>
-              </div>
-            </div>
-
-            <div className="mt-8">
-              <p className="text-sm text-muted-foreground mb-3">Core stack</p>
-              <div className="flex flex-wrap gap-2">
-                {['React', 'Next.js', 'Node.js', 'TypeScript', 'AWS'].map((tag) => (
-                  <span key={tag} className="project-tag">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
+            {/* Decorative elements */}
+            <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl z-0" />
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary/10 rounded-full blur-2xl z-0" />
           </motion.div>
         </div>
       </div>

@@ -32,7 +32,6 @@ export async function POST(request: NextRequest) {
 - Name: Amit Kumar
 - Title: Full Stack Developer | AI/ML Enthusiast | Top 1.4% LeetCode
 - Email: 1311amitkr@gmail.com
-- Phone: +91 9060053989
 - Location: Raichur, Karnataka, India
 - Summary: 
   I am a passionate Full Stack Developer and AI/ML enthusiast with a strong foundation in computer science. Currently pursuing my Bachelor of Technology in Computer Science and Engineering at IIT Raichur, I specialize in building scalable web applications and cloud-based solutions. With expertise in React.js, Next.js, Node.js, and AWS, I enjoy creating innovative digital experiences that solve real-world problems. I am also an avid problem solver, ranking in the top 1.4% globally on LeetCode.
@@ -55,7 +54,7 @@ export async function POST(request: NextRequest) {
   * Intermediate and Matriculation from Jawahar Navodaya Vidyalaya, Katihar (August 2015-June 2022)
 - Achievements: 
   * Top 1.4% LeetCode global performer
-  * 400+ DSA problems solved
+  * 450+ DSA problems solved
   * Qualified SIH 2025-26 Institute Round
   * Strong in system design, cloud architecture, and algorithm optimization
 - Links: GitHub, LinkedIn, LeetCode

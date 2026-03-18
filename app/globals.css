@@ -55,6 +55,54 @@
     --sidebar-ring: 175 80% 50%;
   }
 
+  .light {
+    --background: 0 0% 99%;
+    --foreground: 220 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 15%;
+
+    --primary: 175 85% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 260 75% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 20% 45%;
+
+    --accent: 175 85% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 88%;
+    --input: 220 20% 90%;
+    --ring: 175 85% 40%;
+
+    /* Custom portfolio tokens for light mode */
+    --gradient-primary: linear-gradient(135deg, hsl(175 85% 40%), hsl(200 80% 45%));
+    --gradient-secondary: linear-gradient(135deg, hsl(260 75% 50%), hsl(290 75% 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(35 90% 55%), hsl(25 90% 50%));
+    --glow-primary: 0 0 25px hsl(175 85% 40% / 0.15);
+    --glow-secondary: 0 0 25px hsl(260 75% 50% / 0.15);
+    --glass-bg: hsl(0 0% 100% / 0.85);
+    --glass-border: hsl(220 20% 88% / 0.8);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 25% 15%;
+    --sidebar-primary: 175 85% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 96%;
+    --sidebar-accent-foreground: 220 25% 15%;
+    --sidebar-border: 220 20% 88%;
+    --sidebar-ring: 175 85% 40%;
+  }
+
   .dark {
     --background: 220 20% 4%;
     --foreground: 210 40% 98%;
@@ -106,6 +154,14 @@
     border: 1px solid var(--glass-border);
   }
 
+  .dark .glass-card {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .light .glass-card {
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+  }
+
   .glass-card::before {
     content: '';
     @apply absolute inset-0 opacity-0 transition-opacity duration-500;
@@ -114,6 +170,15 @@
       hsl(175 80% 50% / 0.1) 0%,
       transparent 50%,
       hsl(260 80% 65% / 0.05) 100%
+    );
+  }
+
+  .light .glass-card::before {
+    background: linear-gradient(
+      135deg,
+      hsl(175 85% 40% / 0.06) 0%,
+      transparent 50%,
+      hsl(260 75% 50% / 0.04) 100%
     );
   }
 

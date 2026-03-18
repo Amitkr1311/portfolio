@@ -5,18 +5,26 @@ const education = [
   {
     degree: "Bachelor of Technology in Computer Science",
     institution: "INDIAN INSTITUTE OF INFORMATION TECHNOLOGY RAICHUR",
-    period: "2023 - Present",
-    description: "Pursuing a B.Tech degree with a focus on software development, algorithms, and system design. Active member of the coding club and participated in various hackathons.",
+    period: "2023 - 2027",
+    description: "Pursuing a B.Tech degree with a focus on software development, algorithms, and system design. Focus on Cloud Native architectures and Full-Stack development.",
     icon: GraduationCap,
     gradient: "from-secondary to-pink-500",
   },
   {
-    degree: "Secondary & Senior Secondary Education",
-    institution: "JAWAHAR NAVODAYA VIDYALAYA\nKATIHAR",
-    period: "2015 - 2022",
-    description: "Selected via JNVST merit exam. Developed a core foundation in STEM and early programming logic, fostering a disciplined approach to academic and technical challenges.",
+    degree: "Senior Secondary Education (Class XII)",
+    institution: "JAWAHAR NAVODAYA VIDYALAYA, KOLASI, KATIHAR, BIHAR",
+    period: "2020 - 2022",
+    description: "Completed Senior Secondary education with a focus on PCM (Physics, Chemistry, Mathematics). Developed early interest in computer science and logical reasoning.",
     icon: BookOpen,
     gradient: "from-primary to-blue-500",
+  },
+  {
+    degree: "Secondary Education (Class X)",
+    institution: "JAWAHAR NAVODAYA VIDYALAYA, KOLASI, KATIHAR, BIHAR",
+    period: "2015 - 2020",
+    description: "Foundational education with strong emphasis on academic discipline and competitive preparation. Selected through JNVST national-level entrance exam.",
+    icon: Award,
+    gradient: "from-blue-500 to-cyan-500",
   },
 ];
 
@@ -55,7 +63,7 @@ const Education = () => {
         </motion.div>
 
         {/* Education Cards */}
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {education.map((edu, index) => (
             <motion.div
               key={edu.degree}

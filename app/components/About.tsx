@@ -6,29 +6,31 @@ const About = () => {
     {
       icon: Code2,
       title: "Full-Stack Development",
-      description: "Building scalable web applications with React, Next.js, and Node.js"
+      description:
+        "Building scalable web applications with React, Next.js, and Node.js",
     },
     {
       icon: Cpu,
       title: "AI & ML Integration",
-      description: "Developing intelligent solutions with modern AI frameworks"
+      description: "Developing intelligent solutions with modern AI frameworks",
     },
     {
       icon: Cloud,
       title: "Cloud Architecture",
-      description: "Deploying and managing infrastructure on AWS (EC2, S3, Lambda)"
+      description:
+        "Deploying and managing infrastructure on AWS (EC2, S3, Lambda)",
     },
     {
       icon: Award,
       title: "Problem Solving",
-      description: "Top 1.4% on LeetCode with 400+ problems solved"
-    }
+      description: "Top 1.4% on LeetCode with 450+ problems solved",
+    },
   ];
 
   const stats = [
     { value: "Top 1.4%", label: "LeetCode Global" },
-    { value: "400+", label: "Problems Solved" },
-    { value: "3+", label: "Major Projects" },
+    { value: "450+", label: "Problems Solved" },
+    { value: "5+", label: "Major Projects" },
     { value: "AWS", label: "Cloud Certified" },
   ];
 
@@ -53,11 +55,11 @@ const About = () => {
             Get to know me
           </span>
           <h2 className="section-heading text-foreground mb-6">
-            About{" "}
-            <span className="gradient-text">Me</span>
+            About <span className="gradient-text">Me</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Computer Science student at IIIT Raichur, passionate about building impactful solutions
+            Computer Science student at IIIT Raichur, passionate about building
+            impactful solutions
           </p>
         </motion.div>
 
@@ -71,27 +73,47 @@ const About = () => {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="glass-card p-8 rounded-3xl h-full">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center text-3xl">
-                  👨‍💻
+              <div className="flex items-center gap-6 mb-8">
+                <div className="relative">
+                  <div className="w-20 h-20 rounded-2xl overflow-hidden border-2 border-primary/20 shadow-xl shadow-primary/5">
+                    <img
+                      src="/profile.png"
+                      alt="Amit Kumar"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-xl bg-background border border-primary/20 flex items-center justify-center text-sm shadow-lg">
+                    🇮🇳
+                  </div>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground">Amit Kumar</h3>
-                  <p className="text-sm text-muted-foreground">Full-Stack Developer</p>
+                  <h3 className="text-2xl font-bold text-foreground tracking-tight">
+                    Amit Kumar
+                  </h3>
+                  <p className="text-sm font-medium gradient-text uppercase tracking-widest">
+                    Full-Stack Developer
+                  </p>
                 </div>
               </div>
 
               <div className="space-y-4 text-muted-foreground">
                 <p className="leading-relaxed">
-                  Computer Science undergraduate at <span className="text-primary font-medium">IIIT Raichur</span>, 
-                  specializing in full-stack development and cloud architecture.
+                  Computer Science undergraduate at{" "}
+                  <span className="text-primary font-medium">IIIT Raichur</span>
+                  , specializing in full-stack development and cloud
+                  architecture.
                 </p>
                 <p className="leading-relaxed">
-                  Currently working as a <span className="text-foreground font-medium">Web Developer Intern</span> at 
-                  Seequenzee, building AWS Lambda CI/CD pipelines and optimizing cloud infrastructure.
+                  Currently working as a{" "}
+                  <span className="text-foreground font-medium">
+                    Web Developer Intern
+                  </span>{" "}
+                  at Seequenzee, building AWS Lambda CI/CD pipelines and
+                  optimizing cloud infrastructure.
                 </p>
                 <p className="leading-relaxed">
-                  Passionate about solving complex algorithmic challenges and building scalable, AI-driven applications.
+                  Passionate about solving complex algorithmic challenges and
+                  building scalable, AI-driven applications.
                 </p>
               </div>
 
@@ -165,10 +187,18 @@ const About = () => {
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <p className="text-sm text-primary font-medium mb-1">2023 - Present</p>
-              <p className="text-lg font-semibold text-foreground">Bachelor of Technology</p>
-              <p className="text-sm text-muted-foreground">Computer Science & Engineering</p>
-              <p className="text-sm text-muted-foreground">IIIT Raichur, Karnataka</p>
+              <p className="text-sm text-primary font-medium mb-1">
+                2023 - Present
+              </p>
+              <p className="text-lg font-semibold text-foreground">
+                Bachelor of Technology
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Computer Science & Engineering
+              </p>
+              <p className="text-sm text-muted-foreground">
+                IIIT Raichur, Karnataka
+              </p>
             </div>
             <div className="flex flex-wrap gap-2 items-start">
               <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20">
@@ -178,7 +208,7 @@ const About = () => {
                 Top 1.4% LeetCode
               </span>
               <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20">
-                400+ DSA Problems
+                450+ DSA Problems
               </span>
             </div>
           </div>

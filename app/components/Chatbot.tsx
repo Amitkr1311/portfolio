@@ -136,7 +136,7 @@ export default function Chatbot() {
     ],
     achievements: [
       'Qualified the Institute-level round of Smart India Hackathon (SIH) 2025-26',
-      'Solved over 400 problems on LeetCode, ranking in the top 1.4% globally',
+      'Solved over 450 problems on LeetCode, ranking in the top 1.4% globally',
     ],
   })
 
