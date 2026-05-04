@@ -14,8 +14,12 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Amit Kumar - Portfolio',
+  title: 'Amit Kumar',
   description: 'Full Stack Developer & AI Enthusiast',
+  icons: {
+    icon: '/Amit_portfolio_logo.png',
+    apple: '/Amit_portfolio_logo.png',
+  },
 }
 
 export default function RootLayout({

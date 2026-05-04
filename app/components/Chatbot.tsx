@@ -64,7 +64,7 @@ export default function Chatbot() {
 
   const getPortfolioData = () => ({
     name: 'Amit Kumar',
-    email: '1311amitkr@gmail.com',
+    email: 'contact@iamamit.me',
     phone: '+91 9060053989',
     location: 'India',
     summary: 'Computer Science undergraduate at IIIT Raichur and Top 1.4% Leetcode global performer. Builds Full-stack, AI-driven, and Cloud (AWS) applications using React.js, Next.js, and Node.js with a keen interest in Golang.',
@@ -305,7 +305,7 @@ export default function Chatbot() {
 
       const errorMessage: Message = {
         id: (Date.now() + 2).toString(),
-        text: `Sorry, I encountered an error: ${error.message}. Please try again or contact Amit directly at 1311amitkr@gmail.com.`,
+        text: `Sorry, I encountered an error: ${error.message}. Please try again or contact Amit directly at contact@iamamit.me.`,
         sender: 'bot',
         timestamp: new Date(),
       }
@@ -339,7 +339,7 @@ export default function Chatbot() {
       {isOpen && (
         <div
           ref={chatBoxRef}
-          className="fixed bottom-24 right-6 z-40 w-96 max-h-[500px] bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col"
+          className="fixed bottom-24 right-6 z-40 w-96 max-h-[500px] bg-card rounded-2xl shadow-2xl border border-border overflow-hidden flex flex-col"
         >
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white p-4">
@@ -360,7 +360,7 @@ export default function Chatbot() {
                   className={`max-w-xs px-4 py-2 rounded-lg ${
                     message.sender === 'user'
                       ? 'bg-primary text-white rounded-br-none'
-                      : 'bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white rounded-bl-none'
+                      : 'bg-muted text-foreground rounded-bl-none'
                   }`}
                 >
                   <p className="text-sm leading-relaxed">{message.text}</p>
@@ -371,7 +371,7 @@ export default function Chatbot() {
           </div>
 
           {/* Input */}
-          <div className="border-t border-slate-200 dark:border-slate-700 p-4 bg-slate-50 dark:bg-slate-900">
+          <div className="border-t border-border p-4 bg-background">
             <div className="flex gap-2">
               <input
                 type="text"
@@ -379,7 +379,7 @@ export default function Chatbot() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ask me anything..."
-                className="flex-1 px-4 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:border-primary text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                className="flex-1 px-4 py-2 bg-card border border-input rounded-lg focus:outline-none focus:border-primary text-foreground placeholder:text-muted-foreground"
               />
               <button
                 onClick={handleSendMessage}
