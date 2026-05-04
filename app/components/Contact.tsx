@@ -63,20 +63,20 @@ export default function Contact() {
     {
       icon: Mail,
       label: 'Email',
-      value: '1311amitkr@gmail.com',
-      href: 'mailto:1311amitkr@gmail.com',
+      value: 'contact@iamamit.me',
+      href: 'mailto:contact@iamamit.me',
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+91 9060053989',
-      href: 'tel:+919060053989',
+      value: '+91 90600 53989',
+      href: 'tel:+91-90600-53989',
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'India',
-      href: '#',
+      value: 'Karnataka, India',
+      href: 'https://maps.app.goo.gl/qWU7uR8WD5YNvAmH9',
     },
   ];
 
@@ -114,7 +114,7 @@ export default function Contact() {
               Amazing Together
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 dark:text-gray-400 max-w-2xl mx-auto mt-4">
+          <p className="text-lg md:text-xl text-slate-700 dark:text-gray-300 max-w-2xl mx-auto mt-4">
             Have a project in mind or want to collaborate? I'd love to hear from you.
             Drop me a message and let's discuss your vision.
           </p>
@@ -136,13 +136,13 @@ export default function Contact() {
               >
                 <div className="flex items-center gap-4">
                   <div className="p-3 rounded-lg bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/40 dark:to-cyan-900/40 group-hover:scale-110 transition-transform">
-                    <Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                    <Icon className="w-6 h-6 text-blue-700 dark:text-blue-300" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-slate-500 dark:text-gray-400">
+                    <p className="text-sm font-medium text-slate-600 dark:text-gray-300">
                       {item.label}
                     </p>
-                    <p className="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    <p className="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors">
                       {item.value}
                     </p>
                   </div>
@@ -177,7 +177,7 @@ export default function Contact() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
-                    className="flex items-center gap-3 text-slate-700 dark:text-gray-300"
+                    className="flex items-center gap-3 text-slate-800 dark:text-gray-200"
                   >
                     <span className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500" />
                     {item}
@@ -211,8 +211,8 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   whileFocus={{ scale: 1.02 }}
-                  className="w-full px-4 py-3 bg-white dark:bg-slate-700 border-2 border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500"
-                  placeholder="John Doe"
+                  className="w-full px-4 py-3 bg-white dark:bg-slate-700 border-2 border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                  placeholder="Your Name"
                 />
               </motion.div>
 
@@ -231,8 +231,8 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   whileFocus={{ scale: 1.02 }}
-                  className="w-full px-4 py-3 bg-white dark:bg-slate-700 border-2 border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500"
-                  placeholder="john@example.com"
+                  className="w-full px-4 py-3 bg-white dark:bg-slate-700 border-2 border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                  placeholder="Your Email"
                 />
               </motion.div>
             </div>
@@ -252,7 +252,7 @@ export default function Contact() {
                 required
                 rows={6}
                 whileFocus={{ scale: 1.02 }}
-                className="w-full px-4 py-3 bg-white dark:bg-slate-700 border-2 border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-slate-900 dark:text-white resize-none placeholder:text-slate-400 dark:placeholder:text-slate-500"
+                className="w-full px-4 py-3 bg-white dark:bg-slate-700 border-2 border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-slate-900 dark:text-white resize-none placeholder:text-slate-500 dark:placeholder:text-slate-400"
                 placeholder="Tell me about your project..."
               />
             </motion.div>
@@ -311,7 +311,7 @@ export default function Contact() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="mt-16 text-center text-slate-600 dark:text-gray-400"
+          className="mt-16 text-center text-slate-700 dark:text-gray-300"
         >
           <p className="mb-2">Looking forward to connecting with you!</p>
           <p className="text-sm">&copy; 2026 Amit Kumar. All rights reserved.</p>

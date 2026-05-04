@@ -91,7 +91,7 @@ const Skills = () => {
                           className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${
                             i < Math.floor(skill.level / 20)
                               ? "bg-primary"
-                              : "bg-muted-foreground/30"
+                              : "bg-muted-foreground/45"
                           }`}
                           initial={{ scale: 0 }}
                           whileInView={{ scale: 1 }}
@@ -115,17 +115,21 @@ const Skills = () => {
         }
         .hexagon-bg {
           clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-          background: linear-gradient(135deg, hsl(175 80% 50% / 0.4), hsl(260 80% 65% / 0.4));
+          background: linear-gradient(
+            135deg,
+            hsl(var(--primary) / 0.38),
+            hsl(var(--secondary) / 0.35)
+          );
         }
         .hexagon-inner {
           clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-          background: hsl(220 20% 8% / 0.8);
+          background: hsl(var(--card) / 0.94);
           backdrop-filter: blur(20px);
-          border: 1px solid hsl(220 15% 25% / 0.5);
+          border: 1px solid hsl(var(--border));
         }
         .hexagon-wrapper:hover .hexagon-inner {
-          background: hsl(220 20% 10% / 0.9);
-          box-shadow: inset 0 0 30px hsl(175 80% 50% / 0.1);
+          background: hsl(var(--card));
+          box-shadow: inset 0 0 30px hsl(var(--primary) / 0.14);
         }
       `}</style>
     </section>

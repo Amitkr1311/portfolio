@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
-import UserIcon from '@/assets/public/icons/UserIcon';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -101,7 +101,14 @@ export default function Navigation() {
               href="#hero"
               className="flex items-center gap-2"
             >
-              <UserIcon />
+              <Image
+                src="/Amit_portfolio_logo.png"
+                alt="Amit Kumar"
+                width={40}
+                height={40}
+                className="h-9 w-auto object-contain"
+                priority
+              />
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 bg-clip-text text-transparent">
                 AK
               </span>
@@ -115,7 +122,7 @@ export default function Navigation() {
                   <a
                     href={item.href}
                     onClick={() => setActiveSection(item.href.slice(1))}
-                    className="relative text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-colors duration-200 px-4 py-2 text-sm font-medium"
+                    className="relative text-slate-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-300 rounded-lg transition-colors duration-200 px-4 py-2 text-sm font-medium"
                   >
                     {item.label}
                     {activeSection === item.href.slice(1) && (
@@ -180,7 +187,7 @@ export default function Navigation() {
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
               whileTap={{ scale: 0.9 }}
-              className="text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 p-2 transition-colors"
+              className="text-slate-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-300 p-2 transition-colors"
             >
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
@@ -213,7 +220,7 @@ export default function Navigation() {
                   key={item.href}
                   variants={mobileItemVariants}
                   href={item.href}
-                  className="text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg block px-4 py-3 text-base font-medium transition-colors"
+                  className="text-slate-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg block px-4 py-3 text-base font-medium transition-colors"
                   onClick={() => {
                     setActiveSection(item.href.slice(1));
                     setIsOpen(false);

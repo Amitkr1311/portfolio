@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
 import ProjectCard from "./ProjectCard";
@@ -5,16 +7,18 @@ import ProjectCard from "./ProjectCard";
 const projects = [
   {
     title: "podcastX - AI Podcast Platform",
-    description: "An AI-powered podcast creation and discovery platform. Features automated transcription, AI-driven content generation, and a seamless discovery experience across various genres.",
+    description:
+      "An AI-powered podcast creation and discovery platform. Features automated transcription, AI-driven content generation, and a seamless discovery experience across various genres.",
     tags: ["Next.js", "Convex", "Clerk", "Gemini", "Deepgram", "TypeScript"],
     link: "https://github.com/Amitkr1311/podcastX",
-    liveLink: "",
+    liveLink: "https://podcastx.iamamit.me/",
     gradient: "from-purple-500 to-pink-500",
-    image: "/projects/podcastr.png",
+    image: "/projects/podcastx.png",
   },
   {
     title: "CollabBoard - Real-Time Canvas",
-    description: "A high-performance collaborative whiteboard using WebSockets for low-latency synchronization. Features a custom HTML5 Canvas rendering engine and optimized monorepo architecture.",
+    description:
+      "A high-performance collaborative whiteboard using WebSockets for low-latency synchronization. Features a custom HTML5 Canvas rendering engine and optimized monorepo architecture.",
     tags: ["Next.js", "Socket.io", "TypeScript", "Turborepo", "Postgresql"],
     link: "https://github.com/Amitkr1311/CollabBoard",
     liveLink: "",
@@ -23,7 +27,8 @@ const projects = [
   },
   {
     title: "StoryForge - AI Visual Storyboard",
-    description: "A Flask web app that transforms sales narratives into AI-generated visual storyboards using NLTK sentence segmentation and LLM-powered prompt engineering.",
+    description:
+      "A Flask web app that transforms sales narratives into AI-generated visual storyboards using NLTK sentence segmentation and LLM-powered prompt engineering.",
     tags: ["Flask", "Python", "Gemini AI", "Stability AI", "NLP"],
     link: "https://github.com/Amitkr1311/StoryForge",
     liveLink: "",
@@ -32,8 +37,9 @@ const projects = [
   },
   {
     title: "NoteSphere - Intelligent Digital Brain",
-    description: "A context-aware knowledge management system using RAG architecture for semantic search over unstructured data. Features a scalable ingestion pipeline with vector embedding integration.",
-    tags: ["MERN Stack", "Hugging face", "Vector DB", "RAG", "TypeScript"], 
+    description:
+      "A context-aware knowledge management system using RAG architecture for semantic search over unstructured data. Features a scalable ingestion pipeline with vector embedding integration.",
+    tags: ["MERN Stack", "Hugging face", "Vector DB", "RAG", "TypeScript"],
     link: "https://github.com/Amitkr1311/NoteSphere",
     liveLink: "",
     gradient: "from-indigo-500 to-violet-500",
@@ -41,7 +47,8 @@ const projects = [
   },
   {
     title: "SARS-CoV-2 Lineage Clustering",
-    description: "A bioinformatics research tool utilizing unsupervised machine learning to analyze viral genomic data. Implements dimensionality reduction (PCA) and clustering algorithms.",
+    description:
+      "A bioinformatics research tool utilizing unsupervised machine learning to analyze viral genomic data. Implements dimensionality reduction (PCA) and clustering algorithms.",
     tags: ["Python", "Scikit-Learn", "Pandas", "Matplotlib"],
     link: "https://github.com/Amitkr1311/sarscov2-lineage-unsupervised-clustering",
     liveLink: "",
@@ -51,88 +58,97 @@ const projects = [
 ];
 
 const Projects = () => {
-  return (
-    <section id="projects" className="py-32 px-4 relative overflow-hidden bg-background">
-      {/* Dynamic Background Elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(var(--primary-rgb),0.05),transparent_50%)]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary/5 rounded-full blur-[120px] opacity-30" />
-      </div>
+  const [featured, ...rest] = projects;
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Animated Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+  return (
+    <section
+      id="projects"
+      className="relative overflow-x-hidden overflow-y-visible bg-background py-28 px-4 md:py-32"
+    >
+      {/* Soft grid + glow — common on modern dev portfolios */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.4] dark:opacity-[0.25]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
+            linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px)
+          `,
+          backgroundSize: "56px 56px",
+          maskImage: "linear-gradient(to bottom, black 30%, transparent 95%)",
+        }}
+      />
+      <div className="absolute left-1/2 top-24 h-[420px] w-[min(90vw,720px)] -translate-x-1/2 rounded-full bg-primary/[0.07] blur-[100px]" />
+
+      <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="mb-14 flex flex-col gap-10 md:mb-20 md:flex-row md:items-end md:justify-between">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="flex-1"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-2xl"
           >
-            <div className="flex items-center gap-3 mb-6">
-               <div className="h-px w-12 bg-primary/50" />
-               <span className="text-primary text-xs font-bold uppercase tracking-[0.3em]">
-                 Selected Explorations
-               </span>
-            </div>
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-8">
-              Digital <span className="gradient-text">Masterpieces</span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+              Portfolio
+            </span>
+            <h2 className="mt-5 text-4xl font-bold tracking-tight text-foreground md:text-6xl md:leading-[1.08]">
+              Selected{" "}
+              <span className="gradient-text">work</span>
             </h2>
-            <p className="text-muted-foreground/70 text-lg md:text-xl max-w-xl font-light leading-relaxed">
-              A curated collection of research, engineering, and design projects 
-              pushing the boundaries of modern web and AI architecture.
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground md:text-xl">
+              Product engineering, research tooling, and full-stack builds — shipped with clear UX and
+              solid architecture.
             </p>
           </motion.div>
 
-          {/* Social Proof/Filter context could go here */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden lg:flex flex-col items-end text-right"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false, amount: 0.6 }}
+            transition={{ delay: 0.12, duration: 0.45 }}
+            className="hidden shrink-0 text-right md:block"
           >
-             <div className="text-4xl font-bold text-foreground/20 italic mb-2">05</div>
-             <div className="text-xs font-medium uppercase tracking-widest text-muted-foreground"> Total Case Studies </div>
+            <p className="font-mono text-5xl font-light tabular-nums text-muted-foreground/30">
+              {String(projects.length).padStart(2, "0")}
+            </p>
+            <p className="mt-1 text-xs font-medium uppercase tracking-widest text-muted-foreground">
+              projects
+            </p>
           </motion.div>
         </div>
 
-        {/* Dynamic Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[minmax(400px,auto)]">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={project.title}
-              project={project}
-              index={index}
-              featured={index === 0}
-            />
+        {/* Featured hero — full width */}
+        <ProjectCard project={featured} index={0} featured />
+
+        {/* Rest — slide-in from right on scroll; reverse on scroll up */}
+        <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:gap-12">
+          {rest.map((project, i) => (
+            <ProjectCard key={project.title} project={project} index={i + 1} />
           ))}
         </div>
 
-        {/* Secondary CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-24 pt-16 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8"
+          viewport={{ once: false, amount: 0.25 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-20 flex flex-col items-start justify-between gap-8 border-t border-border pt-14 md:flex-row md:items-center"
         >
-          <div className="max-w-md">
-            <h4 className="text-xl font-semibold text-foreground mb-2 italic">Looking for something specific?</h4>
-            <p className="text-sm text-muted-foreground">My GitHub contains 20+ additional repositories spanning distributed systems, low-level optimizations, and UI experiments.</p>
+          <div className="max-w-lg">
+            <h4 className="text-lg font-semibold text-foreground">More on GitHub</h4>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Additional repos cover experiments, CLI utilities, and backend services — explore the full history there.
+            </p>
           </div>
-          
           <a
             href="https://github.com/Amitkr1311"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-10 py-5 rounded-3xl overflow-hidden shadow-2xl transition-all hover:scale-105 active:scale-95"
+            className="group inline-flex items-center gap-3 rounded-full border border-border bg-card px-8 py-4 font-semibold text-foreground shadow-sm transition hover:border-primary/40 hover:bg-muted/50"
           >
-            <div className="absolute inset-0 bg-primary opacity-90 group-hover:bg-primary/80 transition-colors" />
-            <div className="relative flex items-center gap-4 text-white font-bold tracking-wide">
-              <span>EXPLORE ALL CODEBASES</span>
-              <Github size={20} className="group-hover:rotate-12 transition-transform" />
-            </div>
+            <Github className="h-5 w-5 text-muted-foreground transition group-hover:text-primary" />
+            @Amitkr1311
+            <span className="text-muted-foreground transition group-hover:translate-x-0.5">→</span>
           </a>
         </motion.div>
       </div>

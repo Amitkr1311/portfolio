@@ -22,7 +22,8 @@
     --secondary-foreground: 210 40% 98%;
 
     --muted: 220 15% 15%;
-    --muted-foreground: 220 15% 60%;
+    /* Brighter body-secondary text on dark page background */
+    --muted-foreground: 215 18% 72%;
 
     --accent: 175 80% 50%;
     --accent-foreground: 220 20% 4%;
@@ -72,7 +73,8 @@
     --secondary-foreground: 0 0% 100%;
 
     --muted: 220 15% 94%;
-    --muted-foreground: 220 20% 45%;
+    /* Darker than body text for WCAG AA on light backgrounds (~5:1 on white) */
+    --muted-foreground: 220 22% 38%;
 
     --accent: 175 85% 40%;
     --accent-foreground: 0 0% 100%;
@@ -115,7 +117,7 @@
     --secondary: 260 80% 65%;
     --secondary-foreground: 210 40% 98%;
     --muted: 220 15% 15%;
-    --muted-foreground: 220 15% 60%;
+    --muted-foreground: 215 18% 72%;
     --accent: 175 80% 50%;
     --accent-foreground: 220 20% 4%;
     --destructive: 0 62.8% 30.6%;
@@ -219,6 +221,18 @@
     border-color: hsl(175 80% 50% / 0.4);
   }
 
+  .light .project-tag {
+    background: hsl(220 20% 93%);
+    color: hsl(175 85% 28%);
+    border: 1px solid hsl(175 85% 38% / 0.35);
+  }
+
+  .light .project-tag:hover {
+    background: hsl(175 85% 40% / 0.12);
+    border-color: hsl(175 85% 38% / 0.55);
+    color: hsl(175 85% 24%);
+  }
+
   /* Link styles */
   .project-link {
     @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300;
@@ -231,6 +245,18 @@
     background: hsl(175 80% 50% / 0.1);
     border-color: hsl(175 80% 50% / 0.5);
     color: hsl(175 80% 60%);
+  }
+
+  .light .project-link {
+    background: hsl(220 15% 96%);
+    color: hsl(220 25% 22%);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .light .project-link:hover {
+    background: hsl(175 85% 40% / 0.12);
+    border-color: hsl(175 85% 40% / 0.45);
+    color: hsl(175 85% 30%);
   }
 
   /* Section heading */
