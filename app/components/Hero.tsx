@@ -76,9 +76,9 @@ const Hero = () => {
               className="mt-10 flex items-center gap-6"
             >
               {[
-                { icon: Github, href: "https://github.com", label: "GitHub" },
-                { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-                { icon: Mail, href: "mailto:1311amitkr@gmail.com", label: "Email" },
+                { icon: Github, href: "https://github.com/Amitkr1311/", label: "GitHub" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/amit-kumar-iiitr/", label: "LinkedIn" },
+                { icon: Mail, href: "mailto:contact@iamamit.me", label: "Email" },
               ].map((social, index) => (
                 <motion.a
                   key={social.label}
