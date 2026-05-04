@@ -1,153 +1,160 @@
-'use client'
+"use client";
 
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ExternalLink, Github } from 'lucide-react'
+import { motion } from "framer-motion";
+import { Github } from "lucide-react";
+import ProjectCard from "./ProjectCard";
 
-gsap.registerPlugin(ScrollTrigger)
+const projects = [
+  {
+    title: "podcastX - AI Podcast Platform",
+    description:
+      "An AI-powered podcast creation and discovery platform. Features automated transcription, AI-driven content generation, and a seamless discovery experience across various genres.",
+    tags: ["Next.js", "Convex", "Clerk", "Gemini", "Deepgram", "TypeScript"],
+    link: "https://github.com/Amitkr1311/podcastX",
+    liveLink: "https://podcastx.iamamit.me/",
+    gradient: "from-purple-500 to-pink-500",
+    image: "/projects/podcastx.png",
+  },
+  {
+    title: "CollabBoard - Real-Time Canvas",
+    description:
+      "A high-performance collaborative whiteboard using WebSockets for low-latency synchronization. Features a custom HTML5 Canvas rendering engine and optimized monorepo architecture.",
+    tags: ["Next.js", "Socket.io", "TypeScript", "Turborepo", "Postgresql"],
+    link: "https://github.com/Amitkr1311/CollabBoard",
+    liveLink: "",
+    gradient: "from-emerald-500 to-teal-500",
+    image: "/projects/collabboard.png",
+  },
+  {
+    title: "StoryForge - AI Visual Storyboard",
+    description:
+      "A Flask web app that transforms sales narratives into AI-generated visual storyboards using NLTK sentence segmentation and LLM-powered prompt engineering.",
+    tags: ["Flask", "Python", "Gemini AI", "Stability AI", "NLP"],
+    link: "https://github.com/Amitkr1311/StoryForge",
+    liveLink: "",
+    gradient: "from-orange-500 to-red-500",
+    image: "/projects/storyforge.png",
+  },
+  {
+    title: "NoteSphere - Intelligent Digital Brain",
+    description:
+      "A context-aware knowledge management system using RAG architecture for semantic search over unstructured data. Features a scalable ingestion pipeline with vector embedding integration.",
+    tags: ["MERN Stack", "Hugging Face", "Vector DB", "RAG", "TypeScript"],
+    link: "https://github.com/Amitkr1311/NoteSphere",
+    liveLink: "",
+    gradient: "from-indigo-500 to-violet-500",
+    image: "/projects/notesphere.png",
+  },
+  {
+    title: "SARS-CoV-2 Lineage Clustering",
+    description:
+      "A bioinformatics research tool utilizing unsupervised machine learning to analyze viral genomic data. Implements dimensionality reduction (PCA) and clustering algorithms.",
+    tags: ["Python", "Scikit-Learn", "Pandas", "Matplotlib"],
+    link: "https://github.com/Amitkr1311/sarscov2-lineage-unsupervised-clustering",
+    liveLink: "",
+    gradient: "from-cyan-500 to-blue-500",
+    image: "/projects/sars-cov.png",
+  },
+];
 
-export default function Projects() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const projectsRef = useRef<HTMLDivElement[]>([])
-
-  useEffect(() => {
-    if (projectsRef.current.length > 0) {
-      projectsRef.current.forEach((project, index) => {
-        gsap.fromTo(
-          project,
-          { y: 100, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            delay: index * 0.2,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: 'top 60%',
-            },
-          }
-        )
-      })
-    }
-  }, [])
-
-  const projects = [
-    {
-      title: 'CollabBoard – Real-Time Collaborative Ideation Canvas',
-      description: 'Built a real-time collaborative whiteboard using WebSockets (Socket.io) for low-latency multi-user synchronization with high-performance HTML5 Canvas rendering. Supports concurrent drawing, shapes, text, and object manipulation.',
-      tags: ['Next.js', 'Node.js', 'Socket.io', 'PostgreSQL', 'Turborepo'],
-      gradient: 'from-blue-500 to-cyan-500',
-      link: 'https://github.com/Amitkr1311/CollabBoard',
-      liveLink: '',
-    },
-    {
-      title: 'QuickAI SaaS – Multimodal Generative AI Suite',
-      description: 'Architected a multimodal SaaS integrating LLMs and Computer Vision for automated content generation. Built with secure payment processing using PostgreSQL transaction locks. Features NLP-driven Resume Reviewer and image processing capabilities.',
-      tags: ['React.js', 'Node.js', 'LLM API', 'PostgreSQL', 'Clerk Auth'],
-      gradient: 'from-purple-500 to-pink-500',
-      link: 'https://github.com/Amitkr1311/QuickAI',
-      liveLink: 'https://creatify-ai-studio.vercel.app/',
-    },
-    {
-      title: 'NoteSphere – Context-Aware Digital Brain & Organizer',
-      description: 'Built a RAG-based retrieval system using vector embeddings for contextual search over unstructured data. Features scalable ingestion pipeline with TypeScript-based validation for normalizing and storing external content with intelligent retrieval.',
-      tags: ['MERN Stack', 'TypeScript', 'OpenAI API', 'Vector Search'],
-      gradient: 'from-orange-500 to-red-500',
-      link: 'https://github.com/Amitkr1311/NoteSphere',
-      liveLink: '',
-    },
-    {
-      title: 'SARS-CoV-2 Lineage Unsupervised Clustering',
-      description: 'Advanced machine learning project analyzing COVID-19 variants using unsupervised clustering algorithms (K-Means, DBSCAN). Discovered natural biological groupings in viral genomic data using PCA and t-SNE dimensionality reduction without predefined labels.',
-      tags: ['Python', 'scikit-learn', 'PCA', 't-SNE', 'Data Analysis'],
-      gradient: 'from-blue-500 to-cyan-500',
-      link: 'https://github.com/Amitkr1311/sarscov2-lineage-unsupervised-clustering',
-      liveLink: '',
-    },
-    {
-      title: 'Quora Duplicate Question Pair Detection',
-      description: 'NLP-based machine learning project identifying duplicate questions using TF-IDF, Word2Vec embeddings, and fuzzy string matching. Achieved 92% accuracy using XGBoost and Random Forest ensemble learning on 40K+ question pairs.',
-      tags: ['Python', 'NLP', 'XGBoost', 'Word2Vec', 'Feature Engineering'],
-      gradient: 'from-purple-500 to-pink-500',
-      link: 'https://github.com/Amitkr1311/Quora-duplicate-question-pair-detection',
-      liveLink: '',
-    },
-    {
-      title: 'Movie Recommendation System',
-      description: 'Intelligent recommendation engine combining collaborative filtering and content-based algorithms. Analyzes movie features and user preferences to provide personalized movie recommendations with high precision.',
-      tags: ['Python', 'Collaborative Filtering', 'Content-Based', 'Pandas'],
-      gradient: 'from-orange-500 to-red-500',
-      link: 'https://github.com/Amitkr1311/Movie_recommendation-system',
-      liveLink: '',
-    },
-  ]
+const Projects = () => {
+  const [featured, ...rest] = projects;
 
   return (
-    <section id="projects" ref={sectionRef} className="min-h-screen flex items-center justify-center py-20 px-4">
-      <div className="max-w-6xl mx-auto w-full">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-          Featured Projects
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={project.title}
-              ref={(el) => {
-                if (el) projectsRef.current[index] = el
-              }}
-              className="group"
-            >
-              <div className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col border border-slate-200 dark:border-slate-700">
-                <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center text-white text-6xl`}>
-                  💼
-                </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-base text-slate-800 dark:text-gray-300 mb-4 flex-1 leading-relaxed">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 text-xs font-medium bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-gray-300 rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex gap-4">
-                    {project.link && (
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
-                      >
-                        <Github size={18} />
-                        <span className="text-sm">GitHub</span>
-                      </a>
-                    )}
-                    {project.liveLink && (
-                      <a
-                        href={project.liveLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
-                      >
-                        <ExternalLink size={18} />
-                        <span className="text-sm">Live Demo</span>
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
+    <section
+      id="projects"
+      className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-orange-50/30 via-rose-50/40 to-stone-50 dark:!bg-transparent dark:from-transparent dark:via-transparent dark:to-transparent py-28 px-4 md:py-32"
+    >
+      {/* Soft grid + glow — common on modern dev portfolios */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.4] dark:opacity-[0.25]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
+            linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px)
+          `,
+          backgroundSize: "56px 56px",
+          WebkitMaskImage: "linear-gradient(to bottom, black 30%, transparent 95%)",
+          maskImage: "linear-gradient(to bottom, black 30%, transparent 95%)",
+        }}
+      />
+      <div className="absolute left-1/2 top-24 h-[420px] w-[min(90vw,720px)] -translate-x-1/2 rounded-full bg-primary/[0.07] blur-[100px]" />
+
+      <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="mb-14 flex flex-col gap-10 md:mb-20 md:flex-row md:items-end md:justify-between">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-2xl"
+          >
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+              Portfolio
+            </span>
+            <h2 className="mt-5 text-4xl font-bold tracking-tight text-foreground md:text-6xl md:leading-[1.08]">
+              Selected{" "}
+              <span className="gradient-text">work</span>
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground md:text-xl">
+              Product engineering, research tooling, and full-stack builds — shipped with clear UX and
+              solid architecture.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false, amount: 0.6 }}
+            transition={{ delay: 0.12, duration: 0.45 }}
+            className="hidden shrink-0 text-right md:block"
+          >
+            <p className="font-mono text-5xl font-light tabular-nums text-muted-foreground/30">
+              {String(projects.length).padStart(2, "0")}
+            </p>
+            <p className="mt-1 text-xs font-medium uppercase tracking-widest text-muted-foreground">
+              projects
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Featured hero — full width */}
+        <ProjectCard project={featured} index={0} featured />
+
+        {/* Rest — slide-in from right on scroll; reverse on scroll up */}
+        <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:gap-12">
+          {rest.map((project, i) => (
+            <ProjectCard key={project.title} project={project} index={i + 1} />
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.25 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-20 flex flex-col items-start justify-between gap-8 border-t border-border pt-14 md:flex-row md:items-center"
+        >
+          <div className="max-w-lg">
+            <h4 className="text-lg font-semibold text-foreground">More on GitHub</h4>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Additional repos cover experiments, CLI utilities, and backend services — explore the full history there.
+            </p>
+          </div>
+          <a
+            href="https://github.com/Amitkr1311"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 rounded-full border border-border bg-card px-8 py-4 font-semibold text-foreground shadow-sm transition hover:border-primary/40 hover:bg-muted/50"
+          >
+            <Github className="h-5 w-5 text-muted-foreground transition group-hover:text-primary" />
+            @Amitkr1311
+            <span className="text-muted-foreground transition group-hover:translate-x-0.5">→</span>
+          </a>
+        </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
+
+export default Projects;
