@@ -22,11 +22,11 @@ interface ProjectCardProps {
 }
 
 const accentFromGradient: Record<string, string> = {
-  "from-cyan-500 to-blue-500": "#06b6d4",
-  "from-purple-500 to-pink-500": "#c084fc",
-  "from-orange-500 to-red-500": "#fb923c",
-  "from-emerald-500 to-teal-500": "#34d399",
-  "from-indigo-500 to-violet-500": "#818cf8",
+  "from-cyan-500 to-blue-500": "#0e7490",
+  "from-purple-500 to-pink-500": "#7e22ce",
+  "from-orange-500 to-red-500": "#c2410c",
+  "from-emerald-500 to-teal-500": "#047857",
+  "from-indigo-500 to-violet-500": "#4338ca",
 };
 
 function LinkButton({

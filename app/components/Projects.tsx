@@ -39,7 +39,7 @@ const projects = [
     title: "NoteSphere - Intelligent Digital Brain",
     description:
       "A context-aware knowledge management system using RAG architecture for semantic search over unstructured data. Features a scalable ingestion pipeline with vector embedding integration.",
-    tags: ["MERN Stack", "Hugging face", "Vector DB", "RAG", "TypeScript"],
+    tags: ["MERN Stack", "Hugging Face", "Vector DB", "RAG", "TypeScript"],
     link: "https://github.com/Amitkr1311/NoteSphere",
     liveLink: "",
     gradient: "from-indigo-500 to-violet-500",
@@ -63,7 +63,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="relative overflow-x-hidden overflow-y-visible bg-background py-28 px-4 md:py-32"
+      className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-orange-50/30 via-rose-50/40 to-stone-50 dark:!bg-transparent dark:from-transparent dark:via-transparent dark:to-transparent py-28 px-4 md:py-32"
     >
       {/* Soft grid + glow — common on modern dev portfolios */}
       <div
@@ -74,6 +74,7 @@ const Projects = () => {
             linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px)
           `,
           backgroundSize: "56px 56px",
+          WebkitMaskImage: "linear-gradient(to bottom, black 30%, transparent 95%)",
           maskImage: "linear-gradient(to bottom, black 30%, transparent 95%)",
         }}
       />

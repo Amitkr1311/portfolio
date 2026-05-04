@@ -86,8 +86,8 @@ export default function Navigation() {
       variants={navVariants}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-2xl border-slate-200/50 dark:border-slate-700/50'
-          : 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-xl border-slate-200 dark:border-slate-700'
+          ? 'bg-card/80 backdrop-blur-xl shadow-2xl border-border/50'
+          : 'bg-card/95 backdrop-blur-md shadow-xl border-border'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

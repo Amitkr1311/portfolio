@@ -6,13 +6,13 @@
 
 @layer base {
   :root {
-    --background: 220 20% 4%;
-    --foreground: 210 40% 98%;
+    --background: 230 40% 12%; /* Deep midnight/navy blue base */
+    --foreground: 210 40% 98%; /* Crisp icy white text */
 
-    --card: 220 20% 8%;
+    --card: 230 40% 15%; /* Slightly lighter navy for card surfaces */
     --card-foreground: 210 40% 98%;
 
-    --popover: 220 20% 8%;
+    --popover: 230 40% 15%;
     --popover-foreground: 210 40% 98%;
 
     --primary: 175 80% 50%;
@@ -57,10 +57,10 @@
   }
 
   .light {
-    --background: 0 0% 99%;
+    --background: 30 40% 93%; /* Softer, darker beige/pinkish blush */
     --foreground: 220 25% 15%;
 
-    --card: 0 0% 100%;
+    --card: 30 30% 96%; /* Slightly off-white to match the softer background */
     --card-foreground: 220 25% 15%;
 
     --popover: 0 0% 100%;
@@ -106,11 +106,11 @@
   }
 
   .dark {
-    --background: 220 20% 4%;
+    --background: 230 40% 10%; /* Deep midnight navy blue */
     --foreground: 210 40% 98%;
-    --card: 220 20% 8%;
+    --card: 225 30% 22%; /* Noticeably lighter and cooler blue-grey for cards */
     --card-foreground: 210 40% 98%;
-    --popover: 220 20% 8%;
+    --popover: 225 30% 22%;
     --popover-foreground: 210 40% 98%;
     --primary: 175 80% 50%;
     --primary-foreground: 220 20% 4%;
@@ -144,6 +144,13 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  .dark body {
+    /* Beautiful fading blue space gradient for the whole app in dark mode */
+    background-image: linear-gradient(to bottom, hsl(230 40% 12%), hsl(240 50% 6%));
+    background-color: transparent !important;
+    background-attachment: fixed;
   }
 }
 

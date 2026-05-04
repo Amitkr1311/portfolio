@@ -132,7 +132,7 @@ export default function Contact() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="group p-6 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 backdrop-blur-sm hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 transition-all"
+                className="group p-6 rounded-xl bg-card border border-border backdrop-blur-sm hover:shadow-lg hover:shadow-blue-500/10 transition-all"
               >
                 <div className="flex items-center gap-4">
                   <div className="p-3 rounded-lg bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/40 dark:to-cyan-900/40 group-hover:scale-110 transition-transform">
@@ -211,7 +211,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   whileFocus={{ scale: 1.02 }}
-                  className="w-full px-4 py-3 bg-white dark:bg-slate-700 border-2 border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                  className="w-full px-4 py-3 bg-muted border-2 border-border rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-foreground placeholder:text-muted-foreground"
                   placeholder="Your Name"
                 />
               </motion.div>
@@ -231,7 +231,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   whileFocus={{ scale: 1.02 }}
-                  className="w-full px-4 py-3 bg-white dark:bg-slate-700 border-2 border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                  className="w-full px-4 py-3 bg-muted border-2 border-border rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-foreground placeholder:text-muted-foreground"
                   placeholder="Your Email"
                 />
               </motion.div>
@@ -252,7 +252,7 @@ export default function Contact() {
                 required
                 rows={6}
                 whileFocus={{ scale: 1.02 }}
-                className="w-full px-4 py-3 bg-white dark:bg-slate-700 border-2 border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-slate-900 dark:text-white resize-none placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                className="w-full px-4 py-3 bg-muted border-2 border-border rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-foreground resize-none placeholder:text-muted-foreground"
                 placeholder="Tell me about your project..."
               />
             </motion.div>
